@@ -3,10 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Micah Silverman</title>
+  <title>Micah Silverman — Chemical Engineer & Polymer Scientist</title>
+
+  <!-- ── SEO / SOCIAL PREVIEW ── -->
+  <meta name="description" content="Chemical Engineer & Polymer Scientist. Sports analytics, backpacking, event planning. Spreadsheets are my art." />
+  <meta property="og:title" content="Micah Silverman" />
+  <meta property="og:description" content="Chemical Engineer & Polymer Scientist. Lover of (arguing about) Sports Analytics, Backpacking, and Event Planning." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://micahsilverman.com" />
+  <meta name="twitter:card" content="summary" />
+
+  <!-- ── FAVICON (inline molecule) ── -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f5f2eb'/%3E%3Cg stroke='%231a1814' stroke-width='1.2' fill='none'%3E%3Cline x1='8' y1='20' x2='16' y2='12'/%3E%3Cline x1='16' y1='12' x2='24' y2='20'/%3E%3C/g%3E%3Ccircle cx='8' cy='20' r='3.5' fill='%23c94a1e'/%3E%3Ccircle cx='16' cy='12' r='3.5' fill='%231a1814'/%3E%3Ccircle cx='24' cy='20' r='3.5' fill='%23c94a1e'/%3E%3C/svg%3E" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -52,7 +65,6 @@
       padding: 2rem 2rem 1.5rem;
     }
 
-    /* ── TOP RULE ── */
     .top-rule {
       width: 100%;
       height: 1px;
@@ -62,7 +74,6 @@
       animation: ruleIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
     }
 
-    /* ── HEADER ── */
     .header {
       display: flex;
       justify-content: space-between;
@@ -87,6 +98,7 @@
       padding-bottom: 0.85rem;
       margin-bottom: 3rem;
       animation: fadeUp 0.6s 0.2s both;
+      flex-wrap: wrap;
     }
 
     .nav-btn {
@@ -104,10 +116,7 @@
     }
 
     .nav-btn:hover { color: var(--ink); }
-
-    .nav-btn.active {
-      color: var(--accent);
-    }
+    .nav-btn.active { color: var(--accent); }
 
     .nav-btn.active::after {
       content: '';
@@ -118,14 +127,13 @@
       background: var(--accent);
     }
 
-    /* ── TAB PANELS ── */
     .tab-panel { display: none; }
     .tab-panel.active {
       display: block;
       animation: fadeUp 0.4s both;
     }
 
-    /* ── HOME PANEL ── */
+    /* ── HOME ── */
     .molecule-wrap {
       display: flex;
       justify-content: flex-start;
@@ -162,15 +170,6 @@
       max-width: 540px;
       line-height: 1.75;
       margin-bottom: 1.25rem;
-    }
-
-    .description .accent-text {
-      color: var(--accent);
-      font-weight: 400;
-    }
-
-    .description .muted {
-      color: var(--muted);
     }
 
     .mid-rule {
@@ -213,10 +212,8 @@
       color: var(--accent);
     }
 
-    /* ── WEBSITES PANEL ── */
-    .section-intro {
-      margin-bottom: 2.5rem;
-    }
+    /* ── SECTION HEADERS ── */
+    .section-intro { margin-bottom: 2.5rem; }
 
     .section-title {
       font-family: 'DM Serif Display', serif;
@@ -234,6 +231,7 @@
       line-height: 1.7;
     }
 
+    /* ── CARDS (websites) ── */
     .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -257,14 +255,13 @@
     }
 
     .card-visual {
-      height: 130px;
+      height: 120px;
       background: var(--paper);
       border-bottom: 1px solid var(--border-light);
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      position: relative;
     }
 
     .card-body {
@@ -276,10 +273,10 @@
 
     .card-title {
       font-family: 'DM Serif Display', serif;
-      font-size: 1.35rem;
+      font-size: 1.3rem;
       letter-spacing: -0.01em;
       color: var(--ink);
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.35rem;
     }
 
     .card-url {
@@ -310,11 +307,18 @@
       align-self: flex-start;
       border-bottom: 1px solid transparent;
       padding-bottom: 1px;
-      transition: border-color 0.2s, gap 0.2s;
+      transition: border-color 0.2s;
     }
 
-    .card-link:hover {
-      border-bottom-color: var(--accent);
+    .card-link:hover { border-bottom-color: var(--accent); }
+
+    .card-link.disabled {
+      color: var(--muted);
+      cursor: default;
+      pointer-events: none;
+      font-style: italic;
+      text-transform: none;
+      letter-spacing: 0.04em;
     }
 
     .card-link .arrow {
@@ -322,11 +326,9 @@
       transition: transform 0.2s;
     }
 
-    .card:hover .card-link .arrow {
-      transform: translateX(3px);
-    }
+    .card:hover .card-link .arrow { transform: translateX(3px); }
 
-    /* ── PROJECTS PANEL ── */
+    /* ── PROJECTS ── */
     .projects-controls {
       display: flex;
       flex-wrap: wrap;
@@ -335,14 +337,15 @@
       align-items: center;
     }
 
-    .category-label {
+    .category-label, .sort-label {
       font-family: 'DM Mono', monospace;
       font-size: 10px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-right: 0.5rem;
     }
+
+    .category-label { margin-right: 0.5rem; }
 
     .category-btn {
       font-family: 'DM Sans', sans-serif;
@@ -388,14 +391,6 @@
       gap: 0.5rem;
     }
 
-    .sort-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
     .sort-select {
       font-family: 'DM Mono', monospace;
       font-size: 11px;
@@ -410,6 +405,161 @@
 
     .sort-select:focus { outline: 1px solid var(--accent); }
 
+    /* Project entries — horizontal rows, more writeup-like than cards */
+    .project-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .project-row {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--paper-warm);
+      padding: 1.25rem 1.4rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .project-row:hover {
+      border-color: rgba(201,74,30,0.3);
+      box-shadow: 0 6px 18px -12px rgba(26,24,20,0.15);
+    }
+
+    .project-row-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    .project-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+    }
+
+    .project-date {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .project-desc {
+      font-size: 13.5px;
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1.7;
+      margin-bottom: 0.75rem;
+    }
+
+    .project-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .project-chip {
+      font-family: 'DM Mono', monospace;
+      font-size: 9.5px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: var(--paper);
+    }
+
+    .project-status {
+      font-family: 'DM Mono', monospace;
+      font-size: 9.5px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid rgba(201,74,30,0.3);
+      background: var(--accent-soft);
+      padding: 3px 9px;
+      border-radius: 999px;
+    }
+
+    /* ── RESUME ── */
+    .resume-block { margin-bottom: 2.5rem; }
+
+    .resume-heading {
+      font-family: 'DM Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .resume-entry { margin-bottom: 1.5rem; }
+
+    .resume-entry-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.25rem 1rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .resume-role {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.15rem;
+      color: var(--ink);
+    }
+
+    .resume-dates {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .resume-org {
+      font-size: 13.5px;
+      font-weight: 400;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .resume-detail {
+      font-size: 13.5px;
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1.7;
+      max-width: 600px;
+    }
+
+    .resume-detail.placeholder-text {
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .resume-download-note {
+      border: 1px dashed var(--border);
+      border-radius: 6px;
+      padding: 1.1rem 1.3rem;
+      background: rgba(237,233,223,0.4);
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ── EMPTY STATE ── */
     .empty-state {
       border: 1px dashed var(--border);
       border-radius: 6px;
@@ -460,10 +610,7 @@
       color: var(--ink);
     }
 
-    .footer-links {
-      display: flex;
-      gap: 1.5rem;
-    }
+    .footer-links { display: flex; gap: 1.5rem; }
 
     .footer-link {
       font-family: 'DM Mono', monospace;
@@ -497,6 +644,7 @@
       .footer { flex-direction: column; gap: 1rem; align-items: flex-start; }
       .nav { gap: 1.2rem; }
       .sort-wrap { margin-left: 0; width: 100%; margin-top: 0.5rem; }
+      .page { padding: 1.5rem 1.25rem; }
     }
   </style>
 </head>
@@ -518,10 +666,9 @@
       <button class="nav-btn"        data-tab="resume">Résumé</button>
     </nav>
 
-    <!-- ═══════════ HOME PANEL ═══════════ -->
+    <!-- ═══════════ HOME ═══════════ -->
     <section class="tab-panel active" id="panel-home">
 
-      <!-- Small molecule -->
       <div class="molecule-wrap">
         <svg viewBox="0 0 160 54" width="160" height="54" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Small molecule illustration">
           <g stroke="rgba(26,24,20,0.2)" stroke-width="1.4" fill="none" stroke-linecap="round">
@@ -554,11 +701,10 @@
         </svg>
       </div>
 
-      <p class="eyebrow">Status — under construction</p>
+      <p class="eyebrow">Welcome</p>
       <h1 class="headline">
-        Something<br/>
-        <em>good</em> is<br/>
-        coming<span class="cursor"></span>
+        Micah<br/>
+        <em>Silverman</em><span class="cursor"></span>
       </h1>
 
       <p class="description">
@@ -568,19 +714,18 @@
       <div class="mid-rule"></div>
 
       <div>
-        <p class="coming-soon-label">What's coming</p>
+        <p class="coming-soon-label">Around the site</p>
         <div class="tags">
-          <span class="tag accent-tag">Projects</span>
+          <span class="tag accent-tag">Live websites</span>
+          <span class="tag">Sports analytics</span>
           <span class="tag">Materials science</span>
           <span class="tag">Data &amp; analytics</span>
-          <span class="tag">R&amp;D process tools</span>
-          <span class="tag">Sports analytics</span>
-          <span class="tag">Writing</span>
+          <span class="tag">Writing — soon</span>
         </div>
       </div>
     </section>
 
-    <!-- ═══════════ WEBSITES PANEL ═══════════ -->
+    <!-- ═══════════ WEBSITES ═══════════ -->
     <section class="tab-panel" id="panel-websites">
 
       <div class="section-intro">
@@ -590,55 +735,41 @@
 
       <div class="card-grid">
 
-        <!-- FIRE CALC CARD -->
+        <!-- FIRE CALC -->
         <article class="card">
           <div class="card-visual">
-            <!-- Growth chart illustration -->
             <svg viewBox="0 0 200 100" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" style="max-width:240px;">
-              <!-- Grid -->
               <g stroke="rgba(26,24,20,0.08)" stroke-width="0.8">
                 <line x1="20" y1="20" x2="190" y2="20"/>
                 <line x1="20" y1="45" x2="190" y2="45"/>
                 <line x1="20" y1="70" x2="190" y2="70"/>
               </g>
-              <!-- Axes -->
               <g stroke="rgba(26,24,20,0.35)" stroke-width="1" stroke-linecap="round">
                 <line x1="20" y1="15" x2="20" y2="85"/>
                 <line x1="20" y1="85" x2="190" y2="85"/>
               </g>
-              <!-- Growth curve fill -->
-              <path d="M 20 78 Q 60 70 90 55 T 150 30 L 185 15 L 185 85 L 20 85 Z"
-                    fill="rgba(201,74,30,0.12)"/>
-              <!-- Growth curve line -->
-              <path d="M 20 78 Q 60 70 90 55 T 150 30 L 185 15"
-                    fill="none" stroke="#c94a1e" stroke-width="2" stroke-linecap="round"/>
-              <!-- Data points -->
+              <path d="M 20 78 Q 60 70 90 55 T 150 30 L 185 15 L 185 85 L 20 85 Z" fill="rgba(201,74,30,0.12)"/>
+              <path d="M 20 78 Q 60 70 90 55 T 150 30 L 185 15" fill="none" stroke="#c94a1e" stroke-width="2" stroke-linecap="round"/>
               <g fill="#c94a1e">
                 <circle cx="50"  cy="73" r="2.5"/>
                 <circle cx="90"  cy="55" r="2.5"/>
                 <circle cx="130" cy="38" r="2.5"/>
                 <circle cx="170" cy="20" r="2.5"/>
               </g>
-              <!-- Y-axis $ -->
-              <text x="10" y="20" font-family="DM Mono, monospace" font-size="7" fill="rgba(26,24,20,0.4)" text-anchor="middle">$$</text>
             </svg>
           </div>
           <div class="card-body">
             <h3 class="card-title">FIRE Calc</h3>
             <p class="card-url">firecalc-three.vercel.app</p>
             <p class="card-desc">An interactive FIRE (Financial Independence, Retire Early) calculator. Model savings rate, portfolio growth, and timelines to financial independence.</p>
-            <a href="https://firecalc-three.vercel.app/" target="_blank" rel="noopener" class="card-link">
-              Visit site <span class="arrow">→</span>
-            </a>
+            <a href="https://firecalc-three.vercel.app/" target="_blank" rel="noopener" class="card-link">Visit site <span class="arrow">→</span></a>
           </div>
         </article>
 
-        <!-- POWER RANKINGS CARD -->
+        <!-- POWER RATINGS -->
         <article class="card">
           <div class="card-visual">
-            <!-- Ranking bars illustration -->
             <svg viewBox="0 0 200 100" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" style="max-width:240px;">
-              <!-- Ranking rows -->
               <g font-family="DM Mono, monospace" font-size="6.5" fill="rgba(26,24,20,0.5)">
                 <text x="20" y="22" text-anchor="end">1</text>
                 <text x="20" y="38" text-anchor="end">2</text>
@@ -646,7 +777,6 @@
                 <text x="20" y="70" text-anchor="end">4</text>
                 <text x="20" y="86" text-anchor="end">5</text>
               </g>
-              <!-- Bars -->
               <g>
                 <rect x="28" y="16" width="155" height="9" rx="1.5" fill="#c94a1e" opacity="0.85"/>
                 <rect x="28" y="32" width="130" height="9" rx="1.5" fill="#c94a1e" opacity="0.65"/>
@@ -654,75 +784,281 @@
                 <rect x="28" y="64" width="78"  height="9" rx="1.5" fill="rgba(26,24,20,0.35)"/>
                 <rect x="28" y="80" width="55"  height="9" rx="1.5" fill="rgba(26,24,20,0.25)"/>
               </g>
-              <!-- Tiny value labels -->
-              <g font-family="DM Mono, monospace" font-size="5.5" fill="#fff">
-                <text x="33" y="22.5">97.4</text>
-                <text x="33" y="38.5">88.1</text>
-                <text x="33" y="54.5">82.6</text>
-              </g>
             </svg>
           </div>
           <div class="card-body">
             <h3 class="card-title">Custom Power Ratings</h3>
             <p class="card-url">custompowerrating.vercel.app</p>
             <p class="card-desc">A custom power-rating engine for sports teams. Tune the weights, plug in the data, and generate ranked tables on the fly.</p>
-            <a href="https://custompowerrating.vercel.app/" target="_blank" rel="noopener" class="card-link">
-              Visit site <span class="arrow">→</span>
-            </a>
+            <a href="https://custompowerrating.vercel.app/" target="_blank" rel="noopener" class="card-link">Visit site <span class="arrow">→</span></a>
           </div>
         </article>
+
+        <!-- FITTRACK (placeholder URL — add the real link) -->
+        <article class="card">
+          <div class="card-visual">
+            <svg viewBox="0 0 200 100" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" style="max-width:240px;">
+              <!-- Activity rings / progress bars -->
+              <circle cx="60" cy="50" r="28" fill="none" stroke="rgba(26,24,20,0.1)" stroke-width="7"/>
+              <circle cx="60" cy="50" r="28" fill="none" stroke="#c94a1e" stroke-width="7"
+                      stroke-dasharray="132 176" stroke-linecap="round" transform="rotate(-90 60 50)"/>
+              <circle cx="60" cy="50" r="18" fill="none" stroke="rgba(26,24,20,0.1)" stroke-width="6"/>
+              <circle cx="60" cy="50" r="18" fill="none" stroke="rgba(201,74,30,0.5)" stroke-width="6"
+                      stroke-dasharray="85 113" stroke-linecap="round" transform="rotate(-90 60 50)"/>
+              <g font-family="DM Mono, monospace" font-size="6" fill="rgba(26,24,20,0.45)">
+                <text x="110" y="35">██████░░ 75%</text>
+                <text x="110" y="55">████████ 100%</text>
+                <text x="110" y="75">████░░░░ 50%</text>
+              </g>
+            </svg>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">FitTrack</h3>
+            <p class="card-url">URL coming soon</p>
+            <p class="card-desc">A personal fitness tracker for logging workouts and watching progress accumulate over time.</p>
+            <!-- TODO: replace with real URL, change class from "card-link disabled" to "card-link" and restore href -->
+            <span class="card-link disabled">Link coming soon</span>
+          </div>
+        </article>
+
+        <!-- TALLY (placeholder URL — add the real link) -->
+        <article class="card">
+          <div class="card-visual">
+            <svg viewBox="0 0 200 100" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" style="max-width:240px;">
+              <!-- Receipt illustration -->
+              <path d="M 75 12 L 125 12 L 125 84 L 118 79 L 111 84 L 104 79 L 97 84 L 90 79 L 83 84 L 75 79 Z"
+                    fill="#fff" stroke="rgba(26,24,20,0.25)" stroke-width="1.2"/>
+              <g stroke="rgba(26,24,20,0.2)" stroke-width="1.5" stroke-linecap="round">
+                <line x1="82" y1="24" x2="118" y2="24"/>
+                <line x1="82" y1="33" x2="110" y2="33"/>
+                <line x1="82" y1="42" x2="114" y2="42"/>
+                <line x1="82" y1="51" x2="106" y2="51"/>
+              </g>
+              <line x1="82" y1="60" x2="118" y2="60" stroke="#c94a1e" stroke-width="1.5" stroke-dasharray="3 2"/>
+              <g stroke="#c94a1e" stroke-width="2" stroke-linecap="round">
+                <line x1="82" y1="69" x2="100" y2="69"/>
+              </g>
+              <text x="118" y="72" font-family="DM Mono, monospace" font-size="8" fill="#c94a1e" text-anchor="end">$$</text>
+            </svg>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Tally</h3>
+            <p class="card-url">URL coming soon</p>
+            <p class="card-desc">A receipt splitter for groups. Drop in the bill, divvy up the items, and settle who owes what without the spreadsheet fight.</p>
+            <!-- TODO: replace with real URL -->
+            <span class="card-link disabled">Link coming soon</span>
+          </div>
+        </article>
+
+        <!-- ═══ TEMPLATE: copy this block to add a new website card ═══
+        <article class="card">
+          <div class="card-visual">
+            [SVG or <img src="screenshot.png" style="width:100%;height:100%;object-fit:cover;"> goes here]
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">SITE NAME</h3>
+            <p class="card-url">site-url.vercel.app</p>
+            <p class="card-desc">One or two sentences about what it does.</p>
+            <a href="https://FULL-URL" target="_blank" rel="noopener" class="card-link">Visit site <span class="arrow">→</span></a>
+          </div>
+        </article>
+        ═══════════════════════════════════════════════════════════ -->
 
       </div>
     </section>
 
-    <!-- ═══════════ PROJECTS PANEL ═══════════ -->
+    <!-- ═══════════ PROJECTS ═══════════ -->
     <section class="tab-panel" id="panel-projects">
 
       <div class="section-intro">
         <h2 class="section-title">Projects</h2>
-        <p class="section-sub">Side projects, analyses, and experiments grouped by topic. Filter by category, sort however you like.</p>
+        <p class="section-sub">Analyses, models, and experiments — grouped by topic and sortable. Currently being written up.</p>
       </div>
 
-      <!-- Category pills + sort -->
+      <div class="empty-state">
+        <div class="empty-icon">✦</div>
+        <div class="empty-title">Coming soon</div>
+        <p class="empty-text">Project writeups are in the works — sports analytics first, with materials science and process tools to follow. Check back soon.</p>
+      </div>
+
+      <!-- ═══════════════════════════════════════════════════════════════════
+           READY-TO-GO CONTENT — uncomment this whole block (and delete the
+           .empty-state above) when you're ready to publish projects.
+           The sort dropdown is already wired to #project-list / #sort-select.
+      ════════════════════════════════════════════════════════════════════════
+
       <div class="projects-controls">
         <span class="category-label">Category —</span>
         <button class="category-btn active" data-cat="sports">Sports analytics</button>
         <button class="category-btn placeholder" disabled>Materials science (soon)</button>
         <button class="category-btn placeholder" disabled>Process tools (soon)</button>
-        <button class="category-btn placeholder" disabled>Writing (soon)</button>
 
         <div class="sort-wrap">
           <span class="sort-label">Sort</span>
           <select class="sort-select" id="sort-select">
             <option value="newest">Newest first</option>
             <option value="oldest">Oldest first</option>
-            <option value="az">A → Z</option>
+            <option value="az">A &rarr; Z</option>
           </select>
         </div>
       </div>
 
-      <!-- Category content -->
-      <div id="category-content">
-        <div class="empty-state">
-          <div class="empty-icon">✦</div>
-          <div class="empty-title">Sports analytics</div>
-          <p class="empty-text">First entries are in development — bracketology work, MLB rule-change analysis, and Bradley-Terry power ratings are all on deck. Check back soon.</p>
+      <div class="project-list" id="project-list">
+
+        <article class="project-row" data-date="2026-05" data-title="ABS Challenge System Analysis">
+          <div class="project-row-top">
+            <h3 class="project-title">ABS Challenge System Analysis</h3>
+            <span class="project-date">2026</span>
+          </div>
+          <p class="project-desc">Digging into MLB's first season with the Automated Ball-Strike challenge system — who's challenging, when they should be, and which teams are leaving win probability on the table. Built on challenge-level data including expected challenge rates and net run expectancy.</p>
+          <div class="project-meta">
+            <span class="project-status">Writeup in progress</span>
+            <span class="project-chip">MLB</span>
+            <span class="project-chip">Python</span>
+          </div>
+        </article>
+
+        <article class="project-row" data-date="2026-04" data-title="Payroll vs. Performance">
+          <div class="project-row-top">
+            <h3 class="project-title">Payroll vs. Performance</h3>
+            <span class="project-date">2026</span>
+          </div>
+          <p class="project-desc">Which MLB front offices actually get what they pay for? A scatter analysis of team payroll against on-field production, with an efficiency metric that measures wins generated per dollar spent above the league floor.</p>
+          <div class="project-meta">
+            <span class="project-status">Writeup in progress</span>
+            <span class="project-chip">MLB</span>
+            <span class="project-chip">Data viz</span>
+          </div>
+        </article>
+
+        <article class="project-row" data-date="2026-03" data-title="Bradley-Terry Power Ratings">
+          <div class="project-row-top">
+            <h3 class="project-title">Bradley-Terry Power Ratings</h3>
+            <span class="project-date">2026</span>
+          </div>
+          <p class="project-desc">A from-scratch Bradley-Terry power ratings model for college basketball, fit with numerical optimization. The math engine behind my bracketology takes — and the foundation for the Custom Power Ratings site.</p>
+          <div class="project-meta">
+            <span class="project-status">Writeup in progress</span>
+            <span class="project-chip">CBB</span>
+            <span class="project-chip">Modeling</span>
+            <span class="project-chip">Python</span>
+          </div>
+        </article>
+
+        <article class="project-row" data-date="2026-02" data-title="Bracketology Toolkit">
+          <div class="project-row-top">
+            <h3 class="project-title">Bracketology Toolkit</h3>
+            <span class="project-date">2026</span>
+          </div>
+          <p class="project-desc">Scripts and pipelines for March Madness season: reshaping KenPom data into analysis-ready formats, pulling team metrics, and feeding it all into bracket pool strategy.</p>
+          <div class="project-meta">
+            <span class="project-status">Writeup in progress</span>
+            <span class="project-chip">CBB</span>
+            <span class="project-chip">Python</span>
+            <span class="project-chip">Excel</span>
+          </div>
+        </article>
+
+        TEMPLATE: copy this block to add a new project
+        <article class="project-row" data-date="YYYY-MM" data-title="PROJECT TITLE">
+          <div class="project-row-top">
+            <h3 class="project-title">PROJECT TITLE</h3>
+            <span class="project-date">YEAR</span>
+          </div>
+          <p class="project-desc">Two or three sentences about the project.</p>
+          <div class="project-meta">
+            <span class="project-chip">TAG</span>
+            <span class="project-chip">TAG</span>
+          </div>
+        </article>
+
+      </div>
+      ════════════════════════════════════════════════════════════════════════ -->
+    </section>
+
+    <!-- ═══════════ RESUME ═══════════ -->
+    <section class="tab-panel" id="panel-resume">
+
+      <div class="section-intro">
+        <h2 class="section-title">Résumé</h2>
+        <p class="section-sub">Full work history, education, and downloadable PDF. Coming soon.</p>
+      </div>
+
+      <div class="empty-state">
+        <div class="empty-icon">✦</div>
+        <div class="empty-title">Coming soon</div>
+        <p class="empty-text">A full résumé and downloadable PDF are on the way. In the meantime, feel free to reach out directly or connect on LinkedIn.</p>
+      </div>
+
+      <!-- ═══════════════════════════════════════════════════════════════════
+           READY-TO-GO CONTENT — uncomment this whole block (and delete the
+           .empty-state above) when you're ready to publish the résumé.
+           Fill in the TODO dates / school before going live.
+      ════════════════════════════════════════════════════════════════════════
+
+      <div class="resume-block">
+        <h3 class="resume-heading">Experience</h3>
+
+        <div class="resume-entry">
+          <div class="resume-entry-top">
+            <span class="resume-role">Lead R&amp;D Engineer</span>
+            <span class="resume-dates">TODO: dates — Present</span>
+          </div>
+          <p class="resume-org">Pacific Rubber &amp; Packing — San Carlos, CA</p>
+          <p class="resume-detail">Leading R&amp;D for elastomer sealing products — materials characterization, failure analysis, cleanroom process development, and new product lines. Managing a small team across lab and engineering functions.</p>
+        </div>
+
+        <div class="resume-entry">
+          <div class="resume-entry-top">
+            <span class="resume-role">Polymer Research</span>
+            <span class="resume-dates">TODO: dates</span>
+          </div>
+          <p class="resume-org">Lawrence Livermore National Laboratory</p>
+          <p class="resume-detail">High-throughput polymer screening under Dr. Johanna Schwartz.</p>
+        </div>
+
+        <div class="resume-entry">
+          <div class="resume-entry-top">
+            <span class="resume-role">Undergraduate Research</span>
+            <span class="resume-dates">TODO: dates</span>
+          </div>
+          <p class="resume-org">Hallinan Research Group (PAES Lab)</p>
+          <p class="resume-detail">Polymer and electrolyte research under Dr. Daniel Hallinan.</p>
         </div>
       </div>
 
-    </section>
+      <div class="resume-block">
+        <h3 class="resume-heading">Education</h3>
+        <div class="resume-entry">
+          <div class="resume-entry-top">
+            <span class="resume-role">B.S. Chemical Engineering</span>
+            <span class="resume-dates">TODO: dates</span>
+          </div>
+          <p class="resume-org">TODO: school name</p>
+          <p class="resume-detail placeholder-text">Details coming soon.</p>
+        </div>
+      </div>
 
-    <!-- ═══════════ RESUME PANEL ═══════════ -->
-    <section class="tab-panel" id="panel-resume">
-      <div class="section-intro">
-        <h2 class="section-title">Résumé</h2>
-        <p class="section-sub">Full work history, education, and skills. Coming soon.</p>
+      <div class="resume-block">
+        <h3 class="resume-heading">Skills</h3>
+        <div class="tags">
+          <span class="tag">Polymer science</span>
+          <span class="tag">Elastomer characterization</span>
+          <span class="tag">Failure analysis</span>
+          <span class="tag">Cleanroom processes</span>
+          <span class="tag">Python</span>
+          <span class="tag">Data analysis</span>
+          <span class="tag">Excel (art form)</span>
+          <span class="tag">Web development</span>
+          <span class="tag">Statistical modeling</span>
+        </div>
       </div>
-      <div class="empty-state">
-        <div class="empty-icon">✦</div>
-        <div class="empty-title">Under construction</div>
-        <p class="empty-text">Resume coming soon. In the meantime, feel free to reach out directly or connect on LinkedIn.</p>
+
+      <div class="resume-download-note">
+        A downloadable PDF resume will live here. Upload resume.pdf to the repo and link it: &lt;a href="/resume.pdf"&gt;Download PDF&lt;/a&gt;
       </div>
+      ════════════════════════════════════════════════════════════════════════ -->
+
     </section>
 
     <!-- FOOTER -->
@@ -738,7 +1074,7 @@
   </div>
 
   <script>
-    // Tab switching
+    // ── Tab switching ──
     const navBtns = document.querySelectorAll('.nav-btn');
     const panels  = document.querySelectorAll('.tab-panel');
 
@@ -750,19 +1086,33 @@
       });
     });
 
-    // Category switching (only one active for now, but ready for more)
+    // ── Category pills (ready for more categories later) ──
     const catBtns = document.querySelectorAll('.category-btn:not(.placeholder)');
     catBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         catBtns.forEach(b => b.classList.toggle('active', b === btn));
-        // Future: swap #category-content based on btn.dataset.cat
+        // Future: show/hide project rows by data-cat when more categories exist
       });
     });
 
-    // Sort select stub — wire up once projects exist
-    document.getElementById('sort-select').addEventListener('change', (e) => {
-      // Future: re-sort cards in #category-content based on e.target.value
-    });
+    // ── Working sort (only active once projects are published) ──
+    const sortSelect = document.getElementById('sort-select');
+    const projectList = document.getElementById('project-list');
+
+    if (sortSelect && projectList) {
+      sortSelect.addEventListener('change', () => {
+        const rows = Array.from(projectList.querySelectorAll('.project-row'));
+        const mode = sortSelect.value;
+
+        rows.sort((a, b) => {
+          if (mode === 'az')     return a.dataset.title.localeCompare(b.dataset.title);
+          if (mode === 'oldest') return a.dataset.date.localeCompare(b.dataset.date);
+          /* newest */           return b.dataset.date.localeCompare(a.dataset.date);
+        });
+
+        rows.forEach(row => projectList.appendChild(row));
+      });
+    }
   </script>
 </body>
 </html>
